@@ -4,8 +4,6 @@ function flickity_scrolling_carousel( carousel_id ){
 	let isPaused = false;
 	const flickity_carousel = document.getElementById( carousel_id );
 
-	console.log( flickity_carousel );
-
 	const flickity_update = () => {
 		if (isPaused) return;
 
