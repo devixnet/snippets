@@ -7,6 +7,7 @@ Vue.component('vue-posts-archive', {
 			search_query: '',
 			feat_posts: [],
 			posts: [],
+			search_timeout: null,
 			loading: false,
 			popup_post_id: false,
 			localize: localize
@@ -149,7 +150,9 @@ Vue.component('vue-posts-archive', {
 			this.paged = 1;
 
 			if( delay > 0 ){
-				setTimeout(() => {
+				clearTimeout( this.search_timeout );
+
+				this.search_timeout = setTimeout(() => {
 					this._load_posts();
 				}, delay);
 			}else{
